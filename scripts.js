@@ -56,7 +56,7 @@ window.addEventListener('scroll', function() {
     const scrollTop = window.scrollY;
     const topBar = document.querySelector('.top-bar');
     const mainContent = document.querySelector('.main-content');
-    const fadeOutPoint = 200; // Adjust based on when you want the text to start fading out
+    const fadeOutPoint = 300; // Adjust based on when you want the text to start fading out
 
     if (scrollTop < fadeOutPoint) {
         topBar.style.opacity = 1 - scrollTop / fadeOutPoint;

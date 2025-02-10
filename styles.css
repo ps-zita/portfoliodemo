@@ -7,29 +7,23 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .top-bar {
     background-color: #fff;
-    color: #000;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    padding: 10px 20px;
-    height: 40px;
+    padding: 10px 10px;
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1001; /* Ensure hamburger menu is on top */
-    text-transform: lowercase;
+    z-index: 1001;
     transition: opacity 0.3s;
-}
-
-.top-bar .icons {
-    display: flex;
-    align-items: center;
-    margin-right: 7%; /* Original position */
 }
 
 .menu-icon {
@@ -61,12 +55,9 @@ body {
     width: 100%;
     height: 100%;
     background-color: #fff;
-    color: #000;
     opacity: 0;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    z-index: 1000; /* Ensure menu is behind the hamburger icon */
-    text-transform: lowercase;
-    font-family: 'Montserrat', sans-serif;
+    z-index: 1000;
 }
 
 .menu.active {
@@ -75,12 +66,9 @@ body {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.menu p {
+.menu a {
     font-size: 36px;
     margin: 20px 0;
-}
-
-.menu a {
     color: #000;
     text-decoration: none;
 }
@@ -103,47 +91,45 @@ body {
     align-items: flex-start;
     justify-content: center;
     height: 100vh;
-    padding: 20px;
+    padding: 30px;
     text-align: left;
-    margin-left: 2%; /* Move text slightly to the left */
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    width: 80%;
+    width: 100%;
     z-index: 999;
 }
 
-.main-content .name {
-    font-size: 3rem; /* Smaller size */
+.name {
+    font-size: 3rem;
     font-weight: 100;
     margin: 0;
-    color: #000; /* Black color */
-    letter-spacing: -0.05em; /* Closer letter spacing */
+    color: #000;
 }
 
-.main-content .subtext {
-    font-size: 1.5rem; /* Smaller size */
+.subtext {
+    font-size: 1.5rem;
     font-weight: 100;
-    margin: 5px 0 0 0; /* Closer spacing */
-    color: #808080; /* Grey color */
-    letter-spacing: -0.05em; /* Closer letter spacing */
+    margin: 5px 0 0 0;
+    color: #808080;
 }
 
 .content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 100vh; /* Start content below the main content */
-    width: 98%;
+    padding: 0 0 20px 0;
+    margin-top: 100vh;
 }
 
 .tile {
     background-color: #f0f0f0;
     margin: 10px;
-    width: calc(50% - 20px); /* Two tiles per row with margin */
+    width: calc(50% - 20px);
     height: 0;
-    padding-bottom: 75%; /* 4:3 aspect ratio */
+    padding-bottom: 75%;
     position: relative;
+    max-width: 100%;
 }
 
 .tile img {
@@ -153,12 +139,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 0.3s ease;
-    opacity: 1; /* Ensure images are visible by default */
-}
-
-.tile:hover img {
-    opacity: 1; /* Ensure hover does not change opacity */
 }
 
 .tile p {
@@ -168,55 +148,40 @@ body {
     transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.7);
     padding: 5px 10px;
-    border-radius: 0px;
+    border-radius: 5px;
 }
 
 .language-tile {
-    background-color: #000; /* Black background */
-    color: #fff; /* White text */
-    font-family: 'Times New Roman', serif; /* Times New Roman font */
+    background-color: #000;
+    color: #fff;
+    font-family: 'Times New Roman', serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem; /* Larger font size */
-    text-align: center; /* Center the text */
-    width: calc(50% - 20px); /* Two tiles per row with margin */
+    font-size: 3rem;
+    text-align: center;
+    width: calc(50% - 20px);
     height: 0;
-    padding-bottom: 75%; /* 4:3 aspect ratio */
+    padding-bottom: 75%;
     position: relative;
-}
-
-.language-tile .hover-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.language-tile:hover .hover-img {
-    opacity: 1;
+    max-width: 100%;
 }
 
 .language-text {
     position: absolute;
-    top: 0;
     width: 100%;
     height: 100%;
+    top: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     white-space: nowrap;
-    z-index: 1; /* Ensure text is above the image */
 }
 
 @media (max-width: 768px) {
     .tile, .language-tile {
         width: 100%;
-        padding-bottom: 100%; /* Full width and square aspect ratio on mobile */
+        padding-bottom: 100%;
     }
 }
