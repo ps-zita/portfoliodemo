@@ -1,0 +1,222 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.top-bar {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+    height: 40px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1001; /* Ensure hamburger menu is on top */
+    text-transform: lowercase;
+    transition: opacity 0.3s;
+}
+
+.top-bar .icons {
+    display: flex;
+    align-items: center;
+    margin-right: 7%; /* Original position */
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 27px;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    transition: all 0.3s ease;
+}
+
+.menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    color: #000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 1000; /* Ensure menu is behind the hamburger icon */
+    text-transform: lowercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu.active {
+    display: flex;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.menu p {
+    font-size: 36px;
+    margin: 20px 0;
+}
+
+.menu a {
+    color: #000;
+    text-decoration: none;
+}
+
+.menu-icon.open span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 8px);
+}
+
+.menu-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    text-align: left;
+    margin-left: 2%; /* Move text slightly to the left */
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80%;
+    z-index: 999;
+}
+
+.main-content .name {
+    font-size: 3rem; /* Smaller size */
+    font-weight: 100;
+    margin: 0;
+    color: #000; /* Black color */
+    letter-spacing: -0.05em; /* Closer letter spacing */
+}
+
+.main-content .subtext {
+    font-size: 1.5rem; /* Smaller size */
+    font-weight: 100;
+    margin: 5px 0 0 0; /* Closer spacing */
+    color: #808080; /* Grey color */
+    letter-spacing: -0.05em; /* Closer letter spacing */
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 100vh; /* Start content below the main content */
+    width: 98%;
+}
+
+.tile {
+    background-color: #f0f0f0;
+    margin: 10px;
+    width: calc(50% - 20px); /* Two tiles per row with margin */
+    height: 0;
+    padding-bottom: 75%; /* 4:3 aspect ratio */
+    position: relative;
+}
+
+.tile img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+    opacity: 1; /* Ensure images are visible by default */
+}
+
+.tile:hover img {
+    opacity: 1; /* Ensure hover does not change opacity */
+}
+
+.tile p {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    border-radius: 0px;
+}
+
+.language-tile {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    font-family: 'Times New Roman', serif; /* Times New Roman font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem; /* Larger font size */
+    text-align: center; /* Center the text */
+    width: calc(50% - 20px); /* Two tiles per row with margin */
+    height: 0;
+    padding-bottom: 75%; /* 4:3 aspect ratio */
+    position: relative;
+}
+
+.language-tile .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.language-tile:hover .hover-img {
+    opacity: 1;
+}
+
+.language-text {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 1; /* Ensure text is above the image */
+}
+
+@media (max-width: 768px) {
+    .tile, .language-tile {
+        width: 100%;
+        padding-bottom: 100%; /* Full width and square aspect ratio on mobile */
+    }
+}
