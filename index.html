@@ -10,38 +10,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="top-bar">
-        <div class="menu-icon" id="menu-icon" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <div class="menu" id="menu">
-        <a href="#work">work</a>
-        <a href="#contact">contact</a>
-        <a href="#about">about</a>
-    </div>
-    <div class="main-content">
+    <div class="main-content" id="mainContent">
         <h1 class="name">Ziad Taha</h1>
         <h2 class="subtext">Uzbeki-Egyptian Website Developer based in Melbourne, Australia</h2>
     </div>
-    <div class="content">
-        <div class="tile language-tile">
+    <div class="content" id="content">
+        <div class="tile language-tile" data-url="https://ps-zita.github.io/siriuscoffee/">
             <div class="language-text" id="languageText"></div>
         </div>
-        <div class="tile">
-            <img src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg" alt="Placeholder Image 2">
-            <p>Placeholder Content 2</p>
+        <div class="tile" data-url="https://ps-zita.github.io/bensbakers/">
+            <div class="image-container">
+                <img src="benbaker.png" alt="Placeholder Image 2">
+            </div>
         </div>
-        <div class="tile">
+        <div class="tile" data-url="https://example.com/placeholder1">
             <img src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg" alt="Placeholder Image 3">
             <p>Placeholder Content 3</p>
         </div>
-        <div class="tile">
+        <div class="tile" data-url="https://example.com/placeholder2">
             <img src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg" alt="Placeholder Image 4">
             <p>Placeholder Content 4</p>
         </div>
+    </div>
+    <div class="iframe-container" id="iframeContainer">
+        <iframe src="about:blank" frameborder="0"></iframe>
     </div>
     <script src="scripts.js"></script>
 </body>
